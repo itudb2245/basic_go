@@ -15,7 +15,7 @@ pipeline {
                 checkout scm
                 sh 'mkdir -p .build'
                 //sh 'go mod init'
-                sh 'go build'
+                sh 'go build main.go'
                 //sh 'go mod init example.com/greetings'
                 sh 'cp go.mod .build/go.mod.orig'
                 echo 'Build Stage Ended'
