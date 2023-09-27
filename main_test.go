@@ -1,6 +1,9 @@
-package testing
+package main
 
 import (
+	"fmt"
+	"os"
+	"strconv"
 	"main"
 )
 
