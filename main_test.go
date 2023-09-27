@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"main"
+	"full_pipeline/main"
 )
 
 func TestSum(t *testing.T) {
