@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sh 'mkdir -p .build'
+                //sh 'mkdir -p .build'
                 //sh 'go mod init'
                 sh 'go build'
                 //sh 'go mod init example.com/greetings'
