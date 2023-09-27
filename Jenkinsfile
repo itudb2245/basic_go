@@ -16,7 +16,7 @@ pipeline {
                 //sh 'go mod init'
                 sh 'go build'
                 //sh 'go mod init example.com/greetings'
-                //sh 'cp go.mod .build/go.mod.orig'
+                sh 'cp go.mod .build/go.mod.orig'
             }
         }
     }
