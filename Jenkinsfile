@@ -9,10 +9,11 @@ pipeline {
     }
 
     stages {
-        stage('Compile') {
+        stage('Build') {
             steps {
-                sh 'go mod init'
-                sh 'go build'
+                checkout scm
+                sh 'mkdir -p .build'
+                sh 'cp go.mod .build/go.mod.orig'
             }
         }
     }
