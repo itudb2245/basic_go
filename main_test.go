@@ -1,7 +1,3 @@
-import (
-	"testing"
-)
-
 func TestSum(t *testing.T) {
 	actual := Sum(1, 2)
 	expected := 3
