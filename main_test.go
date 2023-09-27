@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"./main"
 )
 
 func TestSum(t *testing.T) {
@@ -13,4 +12,8 @@ func TestSum(t *testing.T) {
 	if actual != expected {
 		t.Errorf("Sum(1, 2): actual %v, expected %v", actual, expected)
 	}
+}
+
+func Sum(a int, b int) int {
+	return a + a
 }
