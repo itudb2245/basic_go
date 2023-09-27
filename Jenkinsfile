@@ -13,7 +13,8 @@ pipeline {
             steps {
                 checkout scm
                 sh 'mkdir -p .build'
-                sh 'cp go.mod .build/go.mod.orig'
+                sh 'go mod init example.com/greetings'
+                //sh 'cp go.mod .build/go.mod.orig'
             }
         }
     }
