@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test Stage Started'
-                sh 'go test  main_test.go'
+                sh 'go test main_test.go'
                 echo 'Test Stage Ended'
             }
         }
