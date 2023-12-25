@@ -1,1 +1,9 @@
+stages:
+- Build
+- Test
 
+Build:
+  - echo "Build"
+
+Test:
+  - echo "Test"
