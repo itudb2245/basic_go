@@ -21,6 +21,7 @@ jobs:
       - name: go ci
         run: |
           echo 'Build Stage Started'
+          checkout scm
           sh 'mkdir -p .build'
           sh 'go build main.go'
           sh 'cp go.mod .build/go.mod.orig'
