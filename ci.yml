@@ -1,9 +1,12 @@
-stages:
-- Build
-- Test
+name: Build on Ubuntu
+on: push
 
-Build:
-  - echo "Build"
-
-Test:
-  - echo "Test"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install updates
+        run: |
+          sudo apt-get update
