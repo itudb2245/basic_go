@@ -23,11 +23,12 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
-      - run: |
+      - name: go build ci
+        run: |
           echo 'Build Stage Started'
-          mkdir .build
-          sh 'go build main.go'
-          sh 'cp go.mod .build/go.mod.orig'
+          mkdir -p .build
+          go build main.go
+          cp go.mod .build/go.mod.orig
           echo 'Build Stage Ended'
         shell: bash
 
@@ -38,9 +39,15 @@ jobs:
         go-version: [ "1.21" ]
     runs-on:  ${{ matrix.os }}
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
       - name: go test ci
         run: |
           echo 'Test Stage Started'
-          sh 'go test'
+          go test
           echo 'Test Stage Ended'
         shell: bash
