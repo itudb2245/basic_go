@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: go ci
-        run: 
+        run: |
           echo 'Build Stage Started'
           checkout scm
           sh 'mkdir -p .build'
@@ -36,7 +36,7 @@ jobs:
     runs-on:  ${{ matrix.os }}
     steps:
       - name: go test ci
-        run:
+        run: |
           echo 'Test Stage Started'
           sh 'go test'
           echo 'Test Stage Ended'
