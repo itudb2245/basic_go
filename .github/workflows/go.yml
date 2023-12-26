@@ -14,3 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: go ci
+        run: echo "A line"
+        shell: bash
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: go test ci
+        run: echo "Next words"
+        shell: bash
