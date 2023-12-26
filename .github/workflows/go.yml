@@ -27,6 +27,8 @@ jobs:
         run: |
           echo 'Build Stage Started'
           mkdir -p .build
+          go mod vendor
+          go mod tidy
           go build main.go
           cp go.mod .build/go.mod.orig
           echo 'Build Stage Ended'
