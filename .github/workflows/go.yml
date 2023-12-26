@@ -28,7 +28,6 @@ jobs:
           echo 'Build Stage Started'
           mkdir -p .build
           go mod init basic_go/v2
-          go mod vendor
           go mod tidy
           go build main.go
           cp go.mod .build/go.mod.orig
