@@ -17,7 +17,12 @@ jobs:
         go-version: [ "1.21" ]
     runs-on:  ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v1
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
       - run: |
           echo 'Build Stage Started'
           checkout scm
