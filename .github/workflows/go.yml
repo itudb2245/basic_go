@@ -25,7 +25,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - run: |
           echo 'Build Stage Started'
-          sh 'mkdir -p .build'
+          sh 'mkdir .build'
           sh 'go build main.go'
           sh 'cp go.mod .build/go.mod.orig'
           echo 'Build Stage Ended'
