@@ -50,7 +50,7 @@ jobs:
       - name: go test ci
         run: |
           echo 'Test Stage Started'
-          cd .build
+          go mod init basic_go/v2
           go test
           echo 'Test Stage Ended'
         shell: bash
