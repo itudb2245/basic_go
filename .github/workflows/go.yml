@@ -27,7 +27,7 @@ jobs:
         run: |
           echo 'Build Stage Started'
           mkdir -p .build
-          go mod init basic_go/v1
+          go mod init basic_go/v2
           go mod vendor
           go mod tidy
           go build main.go
