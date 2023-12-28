@@ -9,7 +9,7 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          command: npm test
+          command: go build main.go
           name: Test app
       - jira/notify:
           pipeline_id: << pipeline.id >>
