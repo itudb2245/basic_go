@@ -17,14 +17,20 @@ jobs:
         go-version: [ "1.21" ]
     runs-on:  ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - name: go ci
-        run: 
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: go build ci
+        run: |
           echo 'Build Stage Started'
-          checkout scm
-          sh 'mkdir -p .build'
-          sh 'go build main.go'
-          sh 'cp go.mod .build/go.mod.orig'
+          mkdir -p .build
+          go mod init basic_go/v2
+          go mod tidy
+          go build main.go
+          cp go.mod .build/go.mod.orig
           echo 'Build Stage Ended'
         shell: bash
 
@@ -35,9 +41,35 @@ jobs:
         go-version: [ "1.21" ]
     runs-on:  ${{ matrix.os }}
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
       - name: go test ci
-        run:
+        run: |
           echo 'Test Stage Started'
-          sh 'go test'
+          go mod init basic_go/v2
+          go test
           echo 'Test Stage Ended'
+        shell: bash
+  
+  docker:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest" ]
+        go-version: [ "1.21" ]
+    runs-on:  ${{ matrix.os }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: go test ci
+        run: |
+          echo 'Docker Stage Started Now.'
+          echo 'Docker Stage Ended'
         shell: bash
